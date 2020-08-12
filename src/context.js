@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import items from "./data";
 import Client from "./Contentful";
-
+Client.getEntries({
+  content_type:"beachResort"
+}).then(response=>console.log(response.items))
 const RoomContext = React.createContext();
 
-export default class RoomProvider extends Component {
+
+class RoomProvider extends Component {
   state = {
     rooms: [],
     sortedRooms: [],
